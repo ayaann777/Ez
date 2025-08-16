@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <link rel="icon" href="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+      #image-sequence {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+  }
+  #image-sequence h1 {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+  #image-sequence p {
+    font-size: 1.2rem;
+    max-width: 400px;
+  }
+  .sequence-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Default: fill & crop */
+  max-width: 100%;
+}
+
+/* Small screens: show full image without cropping */
+@media (max-width: 768px) {
+  .sequence-img {
+    object-fit: contain;  /* show full image */
+    background-color: black; /* fill gaps with black */
+  }
+}
+
+
+  #image-sequence .text-block {
+    position: absolute;
+    top: 20%; left: 5%;
+    z-index: 10;
+    color: white;
+  }
+  #last-desc {
+    position: absolute;
+    bottom: 10%; left: 5%;
+    z-index: 10;
+    color: white;
+    opacity: 0;
+  }
+main {
+  width: 100vw;
+  min-height: calc(100vh - 160px); /* header + footer ke liye jagah */
+  margin: 0;
+  padding-top: 140px; /* header height ke barabar */
+  padding-bottom: 40px; /* footer ke liye space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s ease;
+}
+form:hover{
+  background-color: black;
+}
+@media (max-width: 768px) {
+    #image-sequence .text-block {
+        top: 25%;
+        left: 50%;
+    }
+}
+.sequence-img {
+  transition: opacity 0.5s ease-in-out;
+}
+
+form{
+  transition: all .5s ease;
+}
+    .border-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background: white;
+      width: 0%;
+    }
+    .footer-item {
+      display: flex;
+      align-items: center;
+      padding-left: 50px;
+      height: 100px;
+      width: 100vw;
+      background-color: black;
+      color: white;
+      font-size: 36px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-item:hover {
+      background-color: white;
+      color: black;
+    }
+    ul.menu:has(li:hover) li:not(:hover) {
+      color: rgba(219, 211, 211, 0.808);
+      transition: color 0.2s ease-in-out;
+    }
+    #video-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+  }
+
+  #video-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Default for desktop */
+  }
+
+  /* Small screens fix */
+  @media (max-width: 768px) {
+    #video-section {
+      height: 60vh; /* Reduce height for mobile */
+      margin-top: 150px;
+    }
+    #video-section video {
+      object-fit: contain; /* Show full video without crop */
+      background: black;   /* Fill empty space with black */
+    }
+  }
+  @media (max-width: 1008px) {
+    #video-text {
+      margin-top: -16vh;
+  }
+}
+/* slightly larger images for the rebellious sections */
+.rebellious-img {
+  width: 400px;        /* keeps original width */
+  height: 500px;       /* increased height from ~400 -> 560 */
+  object-fit: cover;   /* preserve aspect, fill the box */
+  display: block;
+  border-radius: 0.5rem; /* matches rounded-xl */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* a touch larger on wide screens */
+@media (min-width: 1400px) {
+  .rebellious-img {
+    width: 480px;
+    height: 580px;
+  }
+}
+
+/* smaller on tablets / phones so layout stays good */
+@media (max-width: 1024px) {
+  .rebellious-img {
+    width: 360px;
+    height: 520px;
+  }
+}
+@media (max-width: 768px) {
+  .rebellious-img {
+    width: 300px;
+    height: 420px;
+  }
+}
+@media (max-width: 420px) {
+  .rebellious-img {
+    width: 240px;
+    height: 340px;
+  }
+}
+
+  </style>
+</head>
+<body class="bg-black text-white">
+
+<!-- Custom Cursor -->
+<div id="custom-cursor"></div>
+
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full z-50" style="border-bottom: 1px solid white;">
+  <div class="bg-black">
+    <div class="flex flex-col items-center pt-2">
+      <a href="#">
+        <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes-Benz Logo" class="h-8 mb-3">
+      </a>
+    </div>
+  </div>
+  <nav id="mainnav" class="bg-black backdrop-blur-md border-b border-white/10">
+    <ul class="menu flex justify-center space-x-14 text-sm font-semibold px-6 py-4">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="machine.html">Machine</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<section id="video-section" style="position: relative;">
+  <video autoplay muted loop playsinline style="border-bottom: 2px solid white; width: 100%; height: auto; display: block;">
+    <source src="jpp.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay Content -->
+  <div style="
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 500px;
+  " id="video-text">
+    <h1 style="font-size: clamp(24px, 3vw, 42px); font-weight: 400; line-height: 1.3;">
+      Leading the way with <br> technology that cares.
+    </h1>
+    <p style="font-size: clamp(14px, 1.5vw, 18px); margin: 10px 0 20px;">
+      Innovation that puts you first.
+    </p>
+    <a href="about.html"
+       style="
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         background: white;
+         color: black;
+         padding: 10px 20px;
+         border-radius: 25px;
+         font-size: 14px;
+         font-weight: 500;
+         text-decoration: none;
+         transition: background 0.3s;
+       "
+       onmouseover="this.style.background='#ccc'"
+       onmouseout="this.style.background='white'">
+      Explore more
+      <span style="font-size: 18px;">➜</span>
+    </a>
+  </div>
+</section>
+
+<script>
+  // GSAP timeline for sequential animations
+  gsap.timeline({ delay: 4.7 })
+    .from("#video-text h1", {
+      x: -100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    })
+    .from("#video-text p", {
+      x: -50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.4")
+    .from("#video-text a", {
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.6,
+      ease: "back.out(1.7)"
+    }, "-=0.3");
+</script>
+
+<!-- HTML -->
+<section id="rebellious-section-1" class="w-full min-h-screen relative bg-black" style="margin-top: 40vh;">
+  <!-- Text pinned to top-right -->
+  <div class="rebellious-text absolute right-[150px] text-right">
+    <div class="word1">Luxe</div>
+    <div class="word2">Designing</div>
+    <p class="word3 font-light text-gray-400 tracking-wide text-xl mt-4 pr-[40px]">A masterpiece of elegance and power in every detail.</p>
+  </div>
+
+  <!-- Image -->
+  <div class="image-container absolute left-[150px] top-[-22%]">
+    <img src="yoyo1.webp" alt="Side image" class="rebellious-img w-[400px] rounded-xl shadow-lg maxx" style="border: 1px solid white;">
+  </div>
+</section>
+
+<section id="rebellious-section-2" class="w-full min-h-screen relative bg-black">
+  <!-- Text pinned to top-left -->
+  <div class="rebellious-text absolute top-[-10%] left-[150px] text-right">
+    <div class="word11">Artisan</div>
+    <div class="word22">Build</div>
+    <p class="word33 font-light text-gray-400 tracking-wide text-xl mt-4 pr-[0px]">A masterpiece of elegance and power in every detail.</p>
+  </div>
+
+  <!-- Image -->
+  <div class="image-container22 absolute right-[150px] top-[-22%]">
+    <img src="yoyo2.webp" alt="Side image" class="rebellious-img w-[400px] rounded-xl shadow-lg maxx" style="border: 1px solid white;">
+  </div>
+</section>
+
+<!-- GSAP Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.fromTo("#rebellious-section-1 .rebellious-img",
+  { y: 100, opacity: 0, scale: 0.5 },
+  {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-1",
+      start: "top 80%",
+      end: "top 50%", // ⬅ animation jaldi end hoga
+      scrub: true
+    }
+  }
+);
+
+// Second image
+gsap.fromTo("#rebellious-section-2 .rebellious-img",
+  { y: 100, opacity: 0, scale: 0.5 },
+  {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-2",
+      start: "top 80%",
+      end: "top 50%", // ⬅ yahan bhi same fix
+      scrub: true
+    }
+  }
+);
+</script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ------------ SECTION 1 (Exclusive Designing) ------------
+  gsap.from("#rebellious-section-1 .word1", {
+    x: 100,
+    opacity: 0,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-1",
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
+    }
+  });
+
+  gsap.from("#rebellious-section-1 .word2", {
+    x: -100,
+    opacity: 0,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-1",
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
+    }
+  });
+
+  gsap.from("#rebellious-section-1 .word3", {
+    y: 100,
+    opacity: 0,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-1",
+      start: "top 75%",
+      end: "top 45%",
+      scrub: true
+    }
+  });
+
+  // ------------ SECTION 2 (Bespoke Crafting) ------------
+  gsap.from("#rebellious-section-2 .word11", {
+    x: 100,
+    opacity: 0,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-2",
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
+    }
+  });
+
+  gsap.from("#rebellious-section-2 .word22", {
+    x: -100,
+    opacity: 0,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-2",
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true
+    }
+  });
+
+  gsap.from("#rebellious-section-2 .word33", {
+    y: 100,
+    opacity: 0,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#rebellious-section-2",
+      start: "top 75%",
+      end: "top 45%",
+      scrub: true
+    }
+  });
+</script>
+
+<!-- Image Scroll Section -->
+
+<section id="image-sequence" style="margin-bottom: 100px; border-bottom: 2px solid white;">
+
+  
+    <!-- Images -->
+    <img src="aesiw1.jpg" class="sequence-img" style="opacity:1;">
+    <img src="aesiw.jpg" class="sequence-img" style="opacity:0;">
+    <img src="aesi 4.avif" class="sequence-img" style="opacity:0;">
+    <img src="aesi5.avif" class="sequence-img" style="opacity:0;">
+  </section>
+  
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const images = gsap.utils.toArray(".sequence-img");
+    const lastDesc = document.getElementById("last-desc");
+    
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#image-sequence",
+        start: "top 13%",
+        end: "+=" + ((images.length - 1) * window.innerHeight * 0.5), // shorter scroll
+        scrub: true,
+        pin: true
+      }
+    });
+    
+    // Sequential fade-in only
+    images.forEach((img, i) => {
+      if (i < images.length - 1) {
+        tl.to(images[i], { opacity: 1, duration: 0.5 }, i);
+      } else {
+        // Last image fades in + last description
+        tl.to(images[i], { opacity: 1, duration: 0.5 }, i)
+          .to(lastDesc, { opacity: 1, duration: 0.5 }, i + 0.5);
+      }
+    });
+    </script>
+    
+  
+  
+
+<section class="bg-black py-8">
+  <h2 id="mercedes-text" class="text-center text-white text-5xl font-light tracking-widest">
+    MERCEDES COMMUNITY
+  </h2>
+</section>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo("#mercedes-text",
+    { opacity: 0.1 }, // starting state
+    {
+      opacity: 2,     // ending state
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#mercedes-text",
+        start: "top 85%", // starts animation when 80% of section is in view
+        toggleActions: "play none none reverse"
+      }
+    }
+  );
+</script>
+
+<!-- Footer -->
+<footer class="bg-black text-white footer-animate">
+  <div style="border-top: 1px solid white;"></div>
+  <div class="flex flex-col">
+    <a href="#" class="footer-item">HOME <span class="border-line"></span></a>
+    <a href="#" class="footer-item">MACHINE <span class="border-line"></span></a>
+    <a href="#" class="footer-item">CONTACT <span class="border-line"></span></a>
+    <a href="#" class="footer-item">ABOUT US <span class="border-line"></span></a>
+  </div>
+  <div class="flex justify-center items-center py-6">
+    <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes-Benz Logo" class="h-12" />
+  </div>
+  <div class="flex justify-center pb-6">
+    <button class="flex flex-col items-center text-white hover:text-gray-300 transition-colors duration-300" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+      <span style="font-size: 15px;">TOP</span>
+    </button>
+  </div>
+</footer>
+<!-- Loader -->
+<div id="loader" class="fixed inset-0 bg-black flex flex-col justify-center items-center z-[9999] opacity-100 transition-opacity duration-700 ease-in-out">
+  <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes Loader" class="w-20 h-15">
+  <div id="loader-count" class="absolute bottom-6 right-8 text-white text-4xl font-bold"></div>
+</div> 
+<script>
+  let count = 0;
+  const loader = document.getElementById('loader');
+  const counter = document.getElementById('loader-count');
+  const interval = setInterval(() => {
+    if (count <= 100) {
+      counter.textContent = `${count}%`;
+      count++;
+    } else {
+      clearInterval(interval);
+      loader.classList.add("opacity-0");
+      loader.classList.remove("opacity-100");
+      setTimeout(() => {
+        loader.style.display = "none";
+        document.body.classList.add("opacity-100");
+        const nav = document.getElementById("mainnav");
+        gsap.set(nav, { height: "100vh", overflow: "hidden" });
+        setTimeout(() => {
+          gsap.to(nav, { height: "auto", duration: 1, ease: "power2.inOut", onComplete: () => { nav.style.overflow = ""; document.body.style.overflow = ""; } });
+        }, 200);
+        gsap.from(".text-gray-400, .text-gray-600, a[href='#']", { y: -20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" });
+        gsap.from(".menu li", { y: -30, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" });
+        gsap.from(".font-bold.text-white", { y: -20, opacity: 0, duration: 0.8, ease: "power2.out" });
+      }, 20);
+    }
+  }, 30);
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray(".footer-item").forEach((item) => {
+    gsap.fromTo(item, { opacity: 0.1 }, { opacity: 2, duration: 0.8, ease: "power1.out", scrollTrigger: { trigger: item, start: "top 100%", toggleActions: "play none none none", scrub: 2 } });
+  });
+  gsap.utils.toArray(".border-line").forEach((line) => {
+    gsap.fromTo(line, { width: "0%" }, { width: "100%", duration: 1, ease: "none", scrollTrigger: { trigger: line.parentElement, start: "top 90%", end:"top 70%", scrub: 2, toggleActions: "play none none none" } });
+  });
+</script>
+
+</body>
+</html>

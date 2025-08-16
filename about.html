@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About - S-Class-</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+      /* make sure page root isn't mis-sized */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;      /* you already have this; keep it */
+  overflow-y: auto;        /* prefer auto for body */
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* account for fixed header so hero doesn't add extra vh */
+header { 
+  height: 88px;            /* set a known header height that matches your header */
+}
+section.hero, .hero {      /* or replace .hero with your hero selector; avoid h-screen here */
+  min-height: calc(100vh - 88px); 
+}
+
+/* force any accidental inner scrollable to show visually and be easier to spot */
+* { box-sizing: border-box; }
+
+      :root { --container-pad: clamp(16px, 4vw, 40px); }
+
+      /* word-on-load animation */
+      @keyframes slideDown { 0% {opacity:0; transform:translateY(30px)} 100% {opacity:1; transform:translateY(0)} }
+      .word-animate{display:inline-block;opacity:0;animation:slideDown .6s ease forwards}
+      .delay-1{animation-delay:.2s}.delay-2{animation-delay:.5s}.delay-3{animation-delay:.8s}
+      .delay-4{animation-delay:1.1s}.delay-5{animation-delay:1.4s}.delay-6{animation-delay:1.6s}
+
+      /* Scroll reveal (GSAP animates these in) */
+      .reveal { opacity: 0; transform: translateY(40px); will-change: transform, opacity; }
+
+      /* Section 2 heading sizing */
+      #sec-2 h1 {
+        font-size: clamp(40px, 8vw, 100px);
+        line-height: 1.1;
+        font-weight: 600;
+      }
+
+      /* ---- END SECTION (img5): full image, no crop, a little above footer ---- */
+      #end-section { position: relative; width: 100%; margin-bottom: clamp(32px, 6vh, 72px); }
+      #end-section img { width: 100%; height: auto; object-fit: contain; display: block; }
+      #end-section .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15)); pointer-events:none; }
+      #end-section .content {
+        position: absolute; left: var(--container-pad); right: var(--container-pad);
+        bottom: clamp(24px, 6vh, 64px); display: flex; align-items: flex-end;
+      }
+      #end-section h1 { font-size: clamp(36px, 6vw, 65px); font-weight: 400; }
+    </style>
+  </head>
+
+  <body class="bg-black text-white m-0 p-0 overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50" style="border-bottom: 1px solid white;">
+      <div class="bg-black">
+        <div class="flex flex-col items-center pt-2">
+          <a href="#">
+            <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes-Benz Logo" class="h-8 mb-3">
+          </a>
+        </div>
+      </div>
+      <nav id="mainnav" class="bg-black backdrop-blur-md border-b border-white/10">
+        <ul class="menu flex justify-center space-x-14 text-sm font-semibold px-6 py-4">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="machine.html">Machine</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero (Section 1) -->
+    <section class="relative h-screen w-full">
+      <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="original.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+      <div class="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
+        <h1 class="md:text-6xl txt1 font-semibold" style="font-weight: 500">
+          <span class="word-animate delay-1">Welcome</span>
+          <span class="word-animate delay-2">to</span>
+          <span class="word-animate delay-3">the</span>
+          <span class="word-animate delay-4">Mercedes-Benz</span><br />
+          <span class="word-animate delay-6">Community.</span>
+        </h1>
+        <button
+          class="mt-6 px-4 py-1 bg-white text-black btn-1 font-medium pe-4 normal-case transition-all duration-300 hover:bg-blue-600 hover:text-white rounded-full"
+        >
+          Register Now
+        </button>
+      </div>
+    </section>
+
+    <!-- Section 2 (intro text) -->
+    <section class="reveal">
+      <div id="sec-2" class="max-w-6xl mx-auto px-[var(--container-pad)] py-16">
+        <h1> Your home for<br/> everything on<br/> Mercedes-Benz.</h1>
+        <p class="mt-4 font-medium text-lg md:text-xl max-w-3xl">
+          This community is a hub for Mercedes-Benz enthusiasts to stay up to date with the latest news, events, launches and much more.
+          Connect with other fans and experts. Share your experiences and knowledge. Find new insights and friends. Explore a whole world
+          dedicated to all things Mercedes-Benz, with exclusive benefits, insights and access.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3 blocks (all alignments fixed to clean 2-col grids) -->
+    <section class="space-y-8">
+      <!-- What's inside for you? (text left, image right) -->
+      <div class="reveal max-w-6xl mx-auto px-[var(--container-pad)] py-16 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-4xl md:text-5xl font-semibold">What's inside for you?</h2>
+          <p class="mt-6 text-lg font-medium text-white/90">
+            Explore discussions, events, news and exclusive benefits crafted for the Mercedes-Benz community.
+          </p>
+        </div>
+        <div class="w-full">
+          <img src="gangnum1.webp" alt="What's inside" class="w-full h-auto object-contain" />
+        </div>
+      </div>
+
+      <!-- Forum (image left, text right) -->
+      <div class="reveal max-w-6xl mx-auto px-[var(--container-pad)] py-16 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <img src="gangnum22.avif" alt="Forum" class="w-full h-auto object-contain" />
+        </div>
+        <div>
+          <h3 class="text-4xl md:text-5xl">Forum</h3>
+          <p class="mt-6 font-bold text-lg leading-relaxed">
+            Connect with fellow Mercedes-Benz enthusiasts and share insights on driving experiences, model features, road trips and travel,
+            or share your thoughts on the many cultural and lifestyle topics Mercedes-Benz has to offer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Events (text left, image right) -->
+      <div class="reveal max-w-6xl mx-auto px-[var(--container-pad)] py-16 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 class="text-4xl md:text-5xl">Event section</h3>
+          <p class="mt-6 font-bold text-lg leading-relaxed">
+            From exclusive product launches to expert talks, immerse yourself in unique experiences with the Mercedes-Benz Community.
+            Stay informed about relevant events and share your own planned get-togethers for other members to join.
+          </p>
+        </div>
+        <div>
+          <img src="gangnum3.webp" alt="Events" class="w-full h-auto object-contain" />
+        </div>
+      </div>
+
+      <!-- Newsroom (image left, text right) -->
+      <div class="reveal max-w-6xl mx-auto px-[var(--container-pad)] py-16 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <img src="gangnum4.avif" alt="Newsroom Image" class="w-full h-auto object-contain" />
+        </div>
+        <div>
+          <h3 class="text-4xl md:text-5xl">Newsroom</h3>
+          <p class="mt-6 font-bold text-lg leading-relaxed">
+            Keep your finger on the pulse of all things Mercedes-Benz: the latest updates and insights on innovations and community
+            highlights, all in one place.
+          </p>
+        </div>
+      </div>
+
+      <!-- Exclusive benefits (text only, aligned to grid width) -->
+      <div class="reveal max-w-6xl mx-auto px-[var(--container-pad)] py-16">
+        <h3 class="text-4xl md:text-5xl">Exclusive benefits</h3>
+        <p class="mt-6 font-bold text-lg leading-relaxed max-w-3xl">
+          The Mercedes-Benz Community offers more than just driving excellence. As a member, you unlock unique promotions, special
+          offers from us and our partners, and exclusive content.
+        </p>
+      </div>
+    </section>
+    <!-- Carousel block (unchanged) -->
+    <section class="caro reveal">
+      <h1 class="pt-36 pl-[clamp(24px,6vw,90px)] pb-8 text-[clamp(40px,6vw,80px)] font-semibold leading-tight">
+        Discover the world of <br />Mercedes-Benz
+      </h1>
+
+      <div class="w-[90vw] h-[90vh] mx-auto mt-10 relative overflow-hidden rounded-lg shadow-lg">
+        <!-- Slides -->
+        <div class="relative w-full h-full" id="carousel">
+          <div class="absolute inset-0 transition-transform duration-700 ease-in-out" data-carousel-item="active">
+            <video class="w-full h-full object-cover" autoplay loop muted>
+              <source src="carousel1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="absolute inset-0 hidden transition-transform duration-700 ease-in-out" data-carousel-item>
+            <video class="w-full h-full object-cover" autoplay loop muted>
+              <source src="carousel2.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="absolute inset-0 hidden transition-transform duration-700 ease-in-out" data-carousel-item>
+            <video class="w-full h-full object-cover" autoplay loop muted>
+              <source src="carousel3.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        <!-- Indicators -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+          <button class="w-3 h-3 rounded-full bg-white opacity-70 hover:opacity-100" data-carousel-slide-to="0"></button>
+          <button class="w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100" data-carousel-slide-to="1"></button>
+          <button class="w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100" data-carousel-slide-to="2"></button>
+        </div>
+
+        <!-- Controls -->
+        <button class="absolute top-1/2 left-3 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 z-10" data-carousel-prev>&#10094;</button>
+        <button class="absolute top-1/2 right-3 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 z-10" data-carousel-next>&#10095;</button>
+      </div>
+
+      <div class="px-[var(--container-pad)] py-8">
+        <h2 class="text-center text-[20px] font-medium">
+          <span class="font-extrabold text-[22px]">Mercedes-Benz Community</span><br />
+          Welcome to the Mercedes-Benz Community! Discover exclusive information about our cars and our latest innovations. Be inspired
+          by our creative partnerships in art, fashion and sport — we look forward to exchanging ideas!
+        </h2><br />
+      </div>
+
+      <!-- UPDATED earlier: image left, text right (kept) -->
+      <div class="reveal flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-14 px-[var(--container-pad)] pt-20">
+        <img src="gangnum6.webp" alt="" class="w-full lg:w-1/2 h-auto object-contain self-start" style="max-height: 50vh;" />
+        <div class="w-full lg:w-1/2">
+          <h2 class="text-[48px] md:text-[60px] leading-[1.15]">Register now with a Mercedes me ID</h2>
+          <h3 class="text-[18px] mt-5">
+            With a Mercedes me login*, you unlock a range of exclusive benefits, including access to digital services and personalised
+            recommendations for digital extras. Register now to make the most of your Mercedes-Benz experience.
+          </h3>
+        </div>
+      </div>
+    </section>
+
+    <br /><br />
+
+
+    <div id="loader" class="fixed inset-0 bg-black flex flex-col justify-center items-center z-[9999] opacity-100 transition-opacity duration-700 ease-in-out">
+      <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes Loader" class="w-20 h-15">
+      <div id="loader-count" class="absolute bottom-6 right-8 text-white text-4xl font-bold"></div>
+    </div> 
+    <section class="bg-black py-8">
+      <h2 id="mercedes-text" class="text-center text-white text-5xl font-light tracking-widest">
+        MERCEDES COMMUNITY
+      </h2>
+    </section>
+    
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+    
+      gsap.fromTo("#mercedes-text",
+        { opacity: 0.1 }, // starting state
+        {
+          opacity: 2,     // ending state
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#mercedes-text",
+            start: "top 85%", // starts animation when 80% of section is in view
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    </script>
+    <footer class="bg-black text-white footer-animate">
+      <div style="border-top: 1px solid white;"></div>
+      <div class="flex flex-col">
+        <a href="index.html" class="footer-item">HOME <span class="border-line"></span></a>
+        <a href="machine.html" class="footer-item">MACHINE <span class="border-line"></span></a>
+        <a href="contact.html" class="footer-item">CONTACT <span class="border-line"></span></a>
+        <a href="about.html" class="footer-item">ABOUT US <span class="border-line"></span></a>
+      </div>
+      <div class="flex justify-center items-center py-6">
+        <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes-Benz Logo" class="h-12" />
+      </div>
+      <div class="flex justify-center pb-6">
+        <button class="flex flex-col items-center text-white hover:text-gray-300 transition-colors duration-300" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+          </svg>
+          <span style="font-size: 15px;">TOP</span>
+        </button>
+      </div>
+    </footer>
+    <script>  gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray(".footer-item").forEach((item) => {
+        gsap.fromTo(item, { opacity: 0.1 }, { opacity: 2, duration: 0.8, ease: "power1.out", scrollTrigger: { trigger: item, start: "top 100%", toggleActions: "play none none none", scrub: 2 } });
+      });
+      gsap.utils.toArray(".border-line").forEach((line) => {
+        gsap.fromTo(line, { width: "0%" }, { width: "100%", duration: 1, ease: "none", scrollTrigger: { trigger: line.parentElement, start: "top 90%", end:"top 70%", scrub: 2, toggleActions: "play none none none" } });
+      });</script>
+    <!-- Carousel JS -->
+    <script>
+      (function () {
+        const items = document.querySelectorAll('[data-carousel-item]');
+        const indicators = document.querySelectorAll('[data-carousel-slide-to]');
+        let index = 0;
+        let interval = setInterval(nextSlide, 3000);
+
+        function showSlide(i) {
+          items.forEach((item, idx) => {
+            item.classList.toggle('hidden', idx !== i);
+            indicators[idx].classList.toggle('opacity-100', idx === i);
+            indicators[idx].classList.toggle('opacity-50', idx !== i);
+          });
+          index = i;
+        }
+        function nextSlide() { index = (index + 1) % items.length; showSlide(index); }
+        document.querySelector('[data-carousel-prev]').addEventListener('click', () => { index = (index - 1 + items.length) % items.length; showSlide(index); resetInterval(); });
+        document.querySelector('[data-carousel-next]').addEventListener('click', () => { nextSlide(); resetInterval(); });
+        indicators.forEach((btn, i) => btn.addEventListener('click', () => { showSlide(i); resetInterval(); }));
+        function resetInterval() { clearInterval(interval); interval = setInterval(nextSlide, 3000); }
+      })();
+    </script>
+
+    <!-- GSAP: fade-up on scroll -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".reveal").forEach((el) => {
+          gsap.fromTo(
+            el,
+            { autoAlpha: 0, y: 40 },
+            {
+              duration: 0.9,
+              autoAlpha: 1,
+              y: 0,
+              ease: "power2.out",
+              stagger: 0.08,
+              scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+                once: true
+              }
+            }
+          );
+        });
+
+        window.addEventListener("load", () => ScrollTrigger.refresh());
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

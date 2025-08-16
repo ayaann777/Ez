@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <link rel="icon" href="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+main {
+  width: 100vw;
+  min-height: calc(100vh - 160px); /* header + footer ke liye jagah */
+  margin: 0;
+  padding-top: 140px; /* header height ke barabar */
+  padding-bottom: 40px; /* footer ke liye space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s ease;
+}
+form:hover{
+  background-color: black;
+}
+form{
+  transition: all .5s ease;
+}
+    .border-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background: white;
+      width: 0%;
+    }
+    .footer-item {
+      display: flex;
+      align-items: center;
+      padding-left: 50px;
+      height: 100px;
+      width: 100vw;
+      background-color: black;
+      color: white;
+      font-size: 36px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-item:hover {
+      background-color: white;
+      color: black;
+    }
+    ul.menu:has(li:hover) li:not(:hover) {
+      color: rgba(219, 211, 211, 0.808);
+      transition: color 0.2s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+<!-- Custom Cursor -->
+<div id="custom-cursor"></div>
+
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full z-50" style="border-bottom: 1px solid white;">
+  <div class="bg-black">
+    <div class="flex flex-col items-center pt-2">
+      <a href="#">
+        <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes-Benz Logo" class="h-8 mb-3">
+      </a>
+    </div>
+  </div>
+  <nav id="mainnav" class="bg-black backdrop-blur-md border-b border-white/10">
+    <ul class="menu flex justify-center space-x-14 text-sm font-semibold px-6 py-4">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="machine.html">Machine</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="relative w-full overflow-hidden" >
+  <!-- Background -->
+  <div class="absolute inset-0">
+    <img src="1751022155726.jpg" alt="Background" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="relative z-10 flex items-center justify-center w-full h-full px-4 form-wrapper">
+    <form class="bg-white/5 backdrop-blur-xl p-6 rounded-3xl shadow-2xl w-full max-w-[70ch] border border-white/20 space-y-4 h-auto py-8" novalidate>
+      
+      <!-- Logo -->
+      <div >
+        <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes Logo" class="w-14 mx-auto mb-1">
+      </div>
+
+      <!-- Full Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-1">Full Name <span class="text-red-500">*</span></label>
+        <input type="text" name="name" required placeholder="John Doe" class="peer w-full p-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-white" />
+        <p class="mt-1 text-sm text-red-500 hidden peer-invalid:block">Please enter your name.</p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-1">Email <span class="text-red-500">*</span></label>
+        <input type="email" name="email" required placeholder="you@example.com" class="peer w-full p-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-white" />
+        <p class="mt-1 text-sm text-red-500 hidden peer-invalid:block">Please enter a valid email.</p>
+      </div>
+
+      <!-- Subject -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-1">Subject <span class="text-red-500">*</span></label>
+        <select name="subject" required class="peer w-full p-3 rounded-lg bg-white text-black border border-white/20 focus:outline-none focus:ring-1 focus:ring-white">
+          <option value="">Select a subject</option>
+          <option>General Inquiry</option>
+          <option>Collaboration</option>
+          <option>Support</option>
+          <option>Other</option>
+        </select>
+        <p class="mt-1 text-sm text-red-500 hidden peer-invalid:block">Please select a subject.</p>
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-1">Message <span class="text-red-500">*</span></label>
+        <textarea name="message" required rows="3" placeholder="Your message..." class="peer w-full p-3 rounded-lg bg-white/5 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-white resize-none"></textarea>
+        <p class="mt-1 text-sm text-red-500 hidden peer-invalid:block">Please enter your message.</p>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="w-full py-3 rounded-lg bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 transition-all duration-300">
+        Send Message
+      </button>
+
+      <!-- Footer note -->
+      <p class="text-xs text-gray-500 text-center">We usually respond within 24 hours.</p>
+    </form>
+  </div>
+</main>
+
+<section class="bg-black py-8">
+  <h2 id="mercedes-text" class="text-center text-white text-5xl font-light tracking-widest">
+    MERCEDES COMMUNITY
+  </h2>
+</section>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo("#mercedes-text",
+    { opacity: 0.1 }, // starting state
+    {
+      opacity: 2,     // ending state
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#mercedes-text",
+        start: "top 85%", // starts animation when 80% of section is in view
+        toggleActions: "play none none reverse"
+      }
+    }
+  );
+</script>
+
+<!-- Footer -->
+<footer class="bg-black text-white footer-animate">
+  <div style="border-top: 1px solid white;"></div>
+  <div class="flex flex-col">
+    <a href="index.html" class="footer-item">HOME <span class="border-line"></span></a>
+    <a href="machine.html" class="footer-item">MACHINE <span class="border-line"></span></a>
+    <a href="contact.html" class="footer-item">CONTACT <span class="border-line"></span></a>
+    <a href="about.html" class="footer-item">ABOUT US <span class="border-line"></span></a>
+  </div>
+  <div class="flex justify-center items-center py-6">
+    <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes-Benz Logo" class="h-12" />
+  </div>
+  <div class="flex justify-center pb-6">
+    <button class="flex flex-col items-center text-white hover:text-gray-300 transition-colors duration-300" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+      <span style="font-size: 15px;">TOP</span>
+    </button>
+  </div>
+</footer>
+<!-- Loader -->
+<div id="loader" class="fixed inset-0 bg-black flex flex-col justify-center items-center z-[9999] opacity-100 transition-opacity duration-700 ease-in-out">
+  <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes Loader" class="w-20 h-15">
+  <div id="loader-count" class="absolute bottom-6 right-8 text-white text-4xl font-bold"></div>
+</div> 
+<script>
+  let count = 0;
+  const loader = document.getElementById('loader');
+  const counter = document.getElementById('loader-count');
+  const interval = setInterval(() => {
+    if (count <= 100) {
+      counter.textContent = `${count}%`;
+      count++;
+    } else {
+      clearInterval(interval);
+      loader.classList.add("opacity-0");
+      loader.classList.remove("opacity-100");
+      setTimeout(() => {
+        loader.style.display = "none";
+        document.body.classList.add("opacity-100");
+        const nav = document.getElementById("mainnav");
+        gsap.set(nav, { height: "100vh", overflow: "hidden" });
+        setTimeout(() => {
+          gsap.to(nav, { height: "auto", duration: 1, ease: "power2.inOut", onComplete: () => { nav.style.overflow = ""; document.body.style.overflow = ""; } });
+        }, 200);
+        gsap.from(".text-gray-400, .text-gray-600, a[href='#']", { y: -20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" });
+        gsap.from(".menu li", { y: -30, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" });
+        gsap.from(".font-bold.text-white", { y: -20, opacity: 0, duration: 0.8, ease: "power2.out" });
+      }, 20);
+    }
+  }, 30);
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray(".footer-item").forEach((item) => {
+    gsap.fromTo(item, { opacity: 0.1 }, { opacity: 2, duration: 0.8, ease: "power1.out", scrollTrigger: { trigger: item, start: "top 100%", toggleActions: "play none none none", scrub: 2 } });
+  });
+  gsap.utils.toArray(".border-line").forEach((line) => {
+    gsap.fromTo(line, { width: "0%" }, { width: "100%", duration: 1, ease: "none", scrollTrigger: { trigger: line.parentElement, start: "top 90%", end:"top 70%", scrub: 2, toggleActions: "play none none none" } });
+  });
+</script>
+
+</body>
+</html>
