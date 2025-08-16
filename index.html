@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S-Class</title>
+  <link rel="icon" href="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" type="image/svg+xml">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<style>
+@media (max-width: 1024px) {
+  #crafted-section {
+    flex-direction: column !important;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  #crafted-section .max-w-lg {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  #showcase-wrapper {
+    width: 80% !important;
+    height: auto !important;
+    margin-top: 1rem !important; /* small gap from text */
+  }
+
+  #showcase-wrapper img {
+    height: auto;
+    max-height: 400px;
+    width: 100%;
+    margin-top: 0 !important; /* removed the big negative margin */
+  }
+
+  #showcase-wrapper .absolute {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #crafted-section p {
+    font-size: 21px;
+    line-height: 1.5;
+  }
+.hora>p{
+font-size: 100px !important;
+}
+  #showcase-wrapper {
+    width: 100% !important;
+  }
+
+  #showcase-wrapper img {
+    max-height: 300px;
+    width: 100%;
+  }
+
+  #showcase-wrapper .absolute {
+    gap: 8px;
+  }
+
+  #showcase-wrapper .color-btn {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (min-width: 569px) and (max-width: 769px)  {
+  .hora>p{
+    font-size: 35px !important;
+}}
+@media  (max-width: 569px)  {
+  .hora>p{
+    font-size: 20px !important;
+}}
+  .border-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: white;
+  width: 0%;
+}
+  .footer-item {
+      display: flex;
+      align-items: center;
+      padding-left: 50px;
+      height: 100px;
+      width: 100vw;
+      background-color: black;
+      color: white;
+      font-size: 36px; /* Increased text size */
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-item:hover {
+      background-color: white;
+      color: black;
+    }
+  ul.menu:has(li:hover) li:not(:hover) {
+    color: rgba(219, 211, 211, 0.808);
+    transition: color 0.2s ease-in-out;
+  }
+  .rebellious-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 10vw;
+    line-height: 1.2;
+    text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    margin-bottom: 6rem;
+
+  }
+  .rebellious-text>p{
+    -webkit-text-stroke: 0px !important;
+  }
+  /* Small screen adjustments */
+@media (max-width: 1200px) {
+  /* Center all section contents */
+  section .container {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Make text center aligned */
+  section .container .text-left {
+    text-align: center !important;
+  }
+
+  /* Center images */
+  section img {
+    margin: 0 auto;
+  }
+
+  /* Reduce large font sizes */
+  .rebellious-text {
+    font-size: 10vw !important;
+    right: 0 !important;
+    left: 0 !important;
+    text-align: center !important;
+    position: relative !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Stack and center the image container */
+  .image-container , .image-container22 {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-top: 2rem !important;
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+  }
+  .gg{
+    width: 100vw !important;
+  }
+  .gord{
+    margin-bottom: 80px !important;
+  }
+  .grand-opening-text{
+    margin-bottom: 120px;
+  }
+  .maxx{
+    width: 60vw !important;
+    height: 60vh;
+    margin-top: 20px;
+    margin-bottom: 150px;
+  }
+  .word3{
+    padding-right: 0px !important;
+  }
+}
+@media (min-width: 1500px) {
+  .big-image {
+    max-height: 600px !important;
+  }
+}
+@media (min-width: 1300px) {
+  .maxx {
+    width: 400px !important;
+  }
+
+}
+@media (min-width: 1450px) {
+  .maxx {
+    width: 500px !important;
+  }
+  .word3{
+    margin-right: 50px  !important;
+  }
+}
+@media (min-width: 1650px) {
+  .maxx {
+    width: 600px !important;
+  }
+  .word3{
+    margin-right: 50px  !important;
+  }
+}
+
+.color-btn {
+  transition: border 0.5s ease;
+  border: none;
+}
+.color-btn:hover {
+  border: 2px solid white;
+}
+.color-btn.active {
+  border: 4px solid white;
+  transform: scale(1.2);
+  box-shadow: 0 0 25px currentColor;
+}
+
+  /* Button base style */
+  .color-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Hover effect */
+  .color-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px currentColor;
+  }
+</style>
+
+<body class="bg-black text-white">
+<!-- Custom Cursor -->
+<div id="custom-cursor"></div>
+
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full z-50" style="border-bottom: 1px solid white;">
+  <div class="bg-black">
+
+    <div class="flex flex-col items-center pt-2">
+      <a href="#">
+        <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes-Benz Logo" class="h-8 mb-3">
+      </a>
+    </div>
+  </div>
+
+  <nav id="mainnav" class="bg-black backdrop-blur-md border-b border-white/10">
+    <ul class="menu flex justify-center space-x-14 text-sm font-semibold px-6 py-4">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="machine.html">Machine</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="relative w-full overflow-hidden" style="height: calc(100vh - 100px); margin-top: 80px;">
+  <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline style="border-bottom: 2px solid white;">
+    <source src="og.mp4" />
+  </video>
+  <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center items-center">
+    <div class="text-center" style="margin-top: 10%;">
+      <h1 id="main-title" class="text-4xl md:text-6xl font-light tracking-wider uppercase mb-6 opacity-0">Class of its own.</h1>
+      <button id="configure-btn" class="text-lg font-light mb-8 opacity-0 px-6 py-2 border border-white text-white text-sm font-bold uppercase tracking-widest rounded-full hover:bg-white hover:text-black" style="transform: scale(0.8);">Configure now.</button>
+    </div>
+  </div>
+</main>
+
+<!-- Content Section -->
+<section class="bg-black min-h-[140vh] w-full flex items-start justify-start pt-24">
+  <div class="container mx-auto px-6 mt-10 flex flex-col md:flex-row justify-between items-start">
+    
+    <!-- Left Text Content -->
+    <div class="max-w-2xl text-white space-y-6 text-left md:w-1/2 gg">
+      <p class="text-xl md:text-5xl font-light leading-relaxed tracking-wide">
+        <span class="crafted-word1">SPORTS</span>
+        <span class="crafted-word1">CARS</span>
+        <span class="crafted-word1">ARE</span>
+        <span class="crafted-word1">THE</span>
+        <span class="crafted-word1">ICONS</span>
+        <span class="crafted-word1">OF</span>
+        <span class="crafted-word1">OUR</span>
+        <span class="crafted-word1">BRAND</span>
+        <span class="crafted-word1">-</span>
+        <span class="crafted-word1">EMOTIONAL</span>
+        <span class="crafted-word1">AND</span>
+        <span class="crafted-word2">TRULY</span>
+        <span class="crafted-word2">SPECIAL</span>
+        <span class="crafted-word2">TO</span>
+        <span class="crafted-word2">CREATE.</span>
+        <span class="crafted-word2">THE</span>
+        <span class="crafted-word2">AMG</span>
+        <span class="crafted-word2">GT</span>
+        <span class="crafted-word2">XX</span>
+        <span class="crafted-word2">EMBODIES</span>
+        <span class="crafted-word2">THE</span>
+        <span class="crafted-word3">'HOT'</span>
+        <span class="crafted-word3">PART</span>
+        <span class="crafted-word3">OF</span>
+        <span class="crafted-word3">OUR</span>
+        <span class="crafted-word3">DESIGN</span>
+        <span class="crafted-word3">PHILOSOPHY</span>
+        <span class="crafted-word3">OF</span>
+        <span class="crafted-word3">SENSUAL</span>
+        <span class="crafted-word3">PURITY.</span>
+      </p>
+
+      <p class="fade-right text-sm md:text-base font-light text-gray-400 tracking-wide gord">
+        GORDEN WAGENER, CHIEF DESIGN OFFICER, MERCEDES-BENZ GROUP AG
+      </p>
+    </div>
+
+    <!-- Right Image Section -->
+    <div class="md:w-1/2 mt-4 md:mt-0 md:ml-8">
+      <img src="Modern Wall Art Print by 21MXM.jpeg" 
+           alt="AMG GT XX" 
+           class="rounded-xl shadow-lg object-cover w-full h-auto max-h-[480px] big-image fade-in-image huh" 
+           style="border: 1px solid white;">
+      <h2 class="grand-opening-text mt-6 text-center text-2xl md:text-4xl font-semibold tracking-widest text-white">
+        GRAND OPENING
+      </h2>
+    </div>
+  </div>
+</section>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".crafted-word1", {
+    scrollTrigger: {
+      trigger: ".crafted-word1",
+      start: "top -35%",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0.1,
+    y: 50,
+    duration: 1,
+    stagger: 0.1, // 0.5s delay between words
+    ease: "power2.out"
+  });
+</script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".crafted-word2", {
+    scrollTrigger: {
+      trigger: ".crafted-word2",
+      start: "top -40%",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0.1,
+    y: 50,
+    duration: 1,
+    stagger: 0.1, // 0.5s delay between words
+    ease: "power2.out"
+  });
+</script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".crafted-word3", {
+    scrollTrigger: {
+      trigger: ".crafted-word3",
+      start: "top -45%",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0.1,
+    y: 50,
+    duration: 1,
+    stagger: 0.1, // 0.5s delay between words
+    ease: "power2.out"
+  });
+</script>
+<script>gsap.from(".fade-in-image", {
+  scrollTrigger: {
+    trigger: ".fade-in-image",
+    start: "top -10%",
+    scrub: 2,
+    toggleActions: "play none none none"
+  },
+  opacity: 0,
+  x: 150,
+  duration: 1.5,
+  ease: "power2.out"
+});
+
+gsap.from(".grand-opening-text", {
+  scrollTrigger: {
+    trigger: ".grand-opening-text",
+    start: "top -8%",
+    scrub: 2,
+    toggleActions: "play none none none"
+  },
+  y: 50,
+  opacity: 0,
+  duration: 2,
+  ease: "power3.out"
+});
+</script>
+<script>gsap.from(".fade-right", {
+  scrollTrigger: {
+    trigger: ".fade-right",
+    start: "top -10%",
+    toggleActions: "play none none none",
+    scrub:2
+  },
+  x: 100,
+  opacity: 0,
+  duration: 2,
+  ease: "power2.out"
+});
+</script>
+
+
+<section id="rebellious-section" class="w-full min-h-screen relative bg-black ">
+  <!-- Text pinned to top-right -->
+  <div class="rebellious-text absolute top-[-10%] right-[150px] text-right">
+    <div class="word1">Exclusive</div>
+    <div class="word2">Designing</div>
+    <p class="word3 font-light text-gray-400 tracking-wide text-xl mt-4 pr-[40px] ">A masterpiece of elegance and power in every detail.</p>
+  </div>
+
+  <!-- Image ready for GSAP animation -->
+  <div class="image-container absolute left-[150px] top-[-22%]">
+    <img src="img1.jpg" alt="Side image" class="w-[400px] rounded-xl shadow-lg maxx" style="border: 1px solid white;">
+  </div>
+</section>
+
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".image-container", {
+    scrollTrigger: {
+      trigger: "#rebellious-section",
+      start: "top -20",
+     
+      scrub: 2
+    },
+    x: -100,
+    opacity: 0,
+    duration: 1.5,
+    ease: "power2.out"
+  });
+</script>
+
+
+
+
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".word1", {
+    scrollTrigger: {
+      trigger: ".word1",
+      start: "top -15%",     // when it enters viewport
+      end: "top 70%",       // ends earlier (adjust this)
+      toggleActions: "play none none none",
+      scrub: 1.5
+    },
+    y: 100,
+    opacity: 0,
+    ease: "power3.out"
+  });
+
+  gsap.from(".word2", {
+    scrollTrigger: {
+      trigger: ".word2",
+      start: "top -6%",     // slight delay from word1
+      end: "top 75%",       // ends sooner
+      toggleActions: "play none none none",
+      scrub: 1.5
+    },
+    y: 100,
+    opacity: 0,
+    ease: "power3.out"
+  });
+  
+</script>
+<script>
+  gsap.from(".word3", {
+    scrollTrigger: {
+      trigger: ".word3",
+      start: "top -5%",
+      end: "top 80%",
+      toggleActions: "play none none none",
+      scrub: 1.5
+    },
+    y: 50,
+    opacity: 0,
+    ease: "power3.out"
+  });
+</script>
+
+<section id="rebellious-section" class="w-full min-h-screen relative bg-black">
+  <!-- Text pinned to top-right -->
+  <div class="rebellious-text absolute top-[-10%] left-[150px] text-right">
+    <div class="word11">Bespoke</div>
+    <div class="word22"> Crafting</div>
+    <p class="word33 font-light text-gray-400 tracking-wide text-xl mt-4 pr-[0px] ">A masterpiece of elegance and power in every detail.</p>
+  </div>
+
+  <!-- Image ready for GSAP animation -->
+  <div class="image-container22 absolute right-[150px] top-[-22%]">
+    <img src="img4.jpg" alt="Side image" class="w-[400px] rounded-xl shadow-lg maxx" style="border: 1px solid white;">
+  </div>
+</section>
+
+
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Animate word11 from the left
+  gsap.from(".word11", {
+    scrollTrigger: {
+      trigger: ".word11",
+      start: "top -22%",
+      scrub: 2,
+    },
+    x: -100,
+    opacity: 0,
+    duration: 3,
+    ease: "power3.out"
+  });
+  
+  // Animate word22 from the right
+  gsap.from(".word22", {
+    scrollTrigger: {
+      trigger: ".word22",
+      start: "top -10%",
+      end: "top -20%",
+      scrub: 2,
+    },
+    x: 100,
+    opacity: 0,
+    duration: 3,
+    ease: "power3.out"
+  });
+  
+  // Animate word33 from the bottom
+  gsap.from(".word33", {
+    scrollTrigger: {
+      trigger: ".word33",
+      start: "top 2%",
+
+      scrub: 1,
+    },
+    y: 80,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+  });
+  
+  // Animate image from the top
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".image-container22 img", {
+    scrollTrigger: {
+      trigger: "#rebellious-section",
+      start: "top -110%", // starts animating when section is 80% in view
+      toggleActions: "play none none reverse"
+    },
+    x: 100,           // moves up from below
+    opacity: 0,       // fades in    // starts smaller
+    duration: .5,    // smooth duration
+    ease: "power2.out",
+    scrub:1
+  });
+  </script>
+  
+<!-- Centered Image Section -->
+
+<section id="crafted-section" class="bg-black flex justify-between items-center py-2 px-12 relative text-white min-h-screen">
+  <!-- Left Text -->
+  <div class="max-w-lg text-white space-y-2 text-left hora">
+    <p class="text-xl md:text-4xl font-light leading-relaxed tracking-wide text-center">
+      <span class="crafted-word">MERCEDES-BENZ</span>
+      <span class="crafted-word">HAS</span>
+      <span class="crafted-word">BEEN</span>
+      <span class="crafted-word">AT</span>
+      <span class="crafted-word">THE</span>
+      <span class="crafted-word">FOREFRONT</span>
+      <span class="crafted-word">OF</span>
+      <span class="crafted-word">AUTOMOTIVE</span>
+      <span class="crafted-word">INNOVATION</span>
+      <span class="crafted-word">FOR</span>
+      <span class="crafted-word">OVER</span>
+      <span class="crafted-word">A</span>
+      <span class="crafted-word">CENTURY.</span>
+      <span class="crafted-word">FROM</span>
+      <span class="crafted-word">THE</span>
+      <span class="crafted-word101">FIRST</span>
+      <span class="crafted-word101">MOTOR</span>
+      <span class="crafted-word101">CAR</span>
+      <span class="crafted-word101">TO</span>
+      <span class="crafted-word101">THE</span>
+      <span class="crafted-word101">LATEST</span>
+      <span class="crafted-word101">ELECTRIC</span>
+      <span class="crafted-word101">VEHICLES,</span>
+      <span class="crafted-word101">WE</span>
+      <span class="crafted-word101">CONTINUE</span>
+      <span class="crafted-word101">TO</span>
+      <span class="crafted-word101">PUSH</span>
+      <span class="crafted-word101">THE</span>
+      <span class="crafted-word101">BOUNDARIES</span>
+      <span class="crafted-word101">OF</span>
+      <span class="crafted-word101">LUXURY,</span>
+      <span class="crafted-word101">PERFORMANCE.</span>
+    </p>
+  </div>
+  <!-- Right Image with Buttons -->
+  <div id="showcase-wrapper" class="h-[70vh] relative" style="width:40%; margin-top: -5rem;">
+    <img id="main-image" 
+         src="gg2.jpg" 
+         alt="Showcase" 
+         class="w-full h-full object-cover rounded-xl shadow-lg border border-white">
+
+    <!-- Vertical Buttons -->
+    <div class="absolute bottom-4 right-4 flex flex-col gap-3">
+      <button class="color-btn w-10 h-10 rounded-full shadow-lg border border-black" 
+              style="background-color: #FFD700;"
+              onclick="changeImage('gg2.jpg', this)"></button>
+
+      <button class="color-btn w-10 h-10 rounded-full" 
+              style="background-color: #8B4513;"
+              onclick="changeImage('gg4.jpg', this)"></button>
+
+      <button class="color-btn w-10 h-10 rounded-full border border-black"
+              style="background-color: #FFFFFF;"
+              onclick="changeImage('gg3.jpg', this)"></button>
+
+      <button class="color-btn w-10 h-10 rounded-full"
+              style="background-color: #8B0000;"
+              onclick="changeImage('gg1.jpg', this)"></button>
+    </div>
+  </div>
+</section>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate heading words one by one with 0.5s delay
+  gsap.from(".crafted-word", {
+    scrollTrigger: {
+      trigger: "#crafted-section",
+      start: "top -45%",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0.1,
+    x: -100,
+    duration: 0.5,
+    stagger: 0.1, // 0.5s delay between each word
+    ease: "power2.out"
+  });
+  gsap.from(".crafted-word101", {
+    scrollTrigger: {
+      trigger: ".crafted-word101",
+      start: "top -30%",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0.1,
+    x: -100,
+    duration: 0.5,
+    stagger: 0.1, // 0.5s delay between each word
+    ease: "power2.out"
+  });
+  // Animate rest of the text normally
+
+  function changeImage(imageSrc, buttonElement) {
+    const mainImage = document.getElementById('main-image');
+
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.color-btn');
+    allButtons.forEach(btn => btn.classList.remove('active'));
+
+    // Add active class to clicked button
+    if (buttonElement) {
+      buttonElement.classList.add('active');
+    }
+
+    // Change image source directly without fade effect
+    mainImage.src = imageSrc;
+  }
+
+  // Set the first button as active by default
+  window.addEventListener('load', function() {
+    const firstButton = document.querySelector('.color-btn');
+    if (firstButton) {
+      firstButton.classList.add('active');
+    }
+  });
+</script>
+
+
+
+
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo("#showcase-wrapper",
+    { width: "7%" }, // starting width
+    { 
+      width: "50vw",  // final width
+      duration: 2, 
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: "#showcase-wrapper",
+        start: "top -40%", // when 80% of viewport height
+        toggleActions: "play none none reverse",
+      }
+    }
+  );
+</script>
+
+<section class="bg-black py-8">
+  <h2 id="mercedes-text" class="text-center text-white text-5xl font-light tracking-widest">
+    MERCEDES BENZ
+  </h2>
+</section>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo("#mercedes-text",
+    { opacity: 0.1 }, // starting state
+    {
+      opacity: 2,     // ending state
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#mercedes-text",
+        start: "top -20%", // starts animation when 80% of section is in view
+        toggleActions: "play none none reverse"
+      }
+    }
+  );
+</script>
+
+
+<footer class="bg-black text-white footer-animate">
+  <div style="border-top: 1px solid white;"></div>
+
+  <!-- Footer Links -->
+  <div class="flex flex-col">
+    <a href="#" class="footer-item">HOME <span class="border-line"></span></a>
+    <a href="#" class="footer-item">MACHINE <span class="border-line"></span></a>
+    <a href="#" class="footer-item">CONTACT <span class="border-line"></span></a>
+    <a href="#" class="footer-item">ABOUT US <span class="border-line"></span></a>
+  </div>
+
+  <!-- Logo (centered) -->
+  <div class="flex justify-center items-center py-6">
+    <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" 
+         alt="Mercedes-Benz Logo" 
+         class="h-12" />
+  </div>
+
+  <!-- Back to Top (centered) -->
+  <div class="flex justify-center pb-6">
+    <button class="flex flex-col items-center text-white hover:text-gray-300 transition-colors duration-300" 
+            onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+      <span style="font-size: 15px;">TOP</span>
+    </button>
+  </div>
+
+</footer>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Links opacity animation
+  gsap.utils.toArray(".footer-item").forEach((item) => {
+    gsap.fromTo(item, 
+      { opacity: 0.1 }, 
+      { 
+        opacity: 2,
+        duration: 0.8,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: item,
+          start: "top -20%",
+          toggleActions: "play none none none",
+          scrub:2
+        }
+      }
+    );
+  });
+</script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray(".border-line").forEach((line) => {
+    gsap.fromTo(line, 
+      { width: "0%" }, 
+      {
+        width: "100%",
+        duration: 3,
+        ease: "none",
+        scrollTrigger: {
+          trigger: line.parentElement,
+          start: "top -30%",
+          scrub:5,
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+</script>
+
+
+<!-- Loader -->
+<div id="loader" class="fixed inset-0 bg-black flex flex-col justify-center items-center z-[9999] opacity-100 transition-opacity duration-700 ease-in-out">
+  <img src="https://www.mercedes-benz.com/content/dam/brandhub/global/logos/MB-star_white.svg/_jcr_content/renditions/original" alt="Mercedes Loader" class="w-20 h-15">
+  <div id="loader-count" class="absolute bottom-6 right-8 text-white text-4xl font-bold"></div>
+</div>
+
+<!-- JS for Loader and Navbar Animation -->
+<script>
+  let count = 0;
+  const loader = document.getElementById('loader');
+  const counter = document.getElementById('loader-count');
+
+  const interval = setInterval(() => {
+    if (count <= 100) {
+      counter.textContent = `${count}%`;
+      count++;
+    } else {
+      clearInterval(interval);
+
+      loader.classList.add("opacity-0");
+      loader.classList.remove("opacity-100");
+
+                           setTimeout(() => {
+          loader.style.display = "none";
+          document.body.classList.add("opacity-100");
+
+          const nav = document.getElementById("mainnav");
+          gsap.set(nav, { height: "100vh", overflow: "hidden" });
+
+          setTimeout(() => {
+            gsap.to(nav, {
+              height: "auto",
+              duration: 1,
+              ease: "power2.inOut",
+              onComplete: () => {
+                nav.style.overflow = "";
+                document.body.style.overflow = "";
+              }
+            });
+          }, 200);
+
+        gsap.from(".text-gray-400, .text-gray-600, a[href='#']", {
+          y: -20,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out"
+        });
+
+            gsap.from(".menu li", {
+              y: -30,
+              opacity: 0,
+              duration: 0.8,
+              stagger: 0.15,
+              ease: "power2.out"
+            });
+
+             gsap.from(".font-bold.text-white", {
+               y: -20,
+               opacity: 0,
+               duration: 0.8,
+               ease: "power2.out"
+             });
+
+              setTimeout(() => {
+
+                                               gsap.registerPlugin(ScrollTrigger);
+                
+                                 const mainTitleTimeline = gsap.timeline({
+                   scrollTrigger: {
+                     trigger: "main",
+                     start: "top80%",
+                     end: "bottom top",
+                     scrub: 0.8,
+                     pin: true,
+                     pinSpacing: true,
+                     onUpdate: (self) => {
+                       const progress = self.progress;
+                       
+                                               gsap.set("#main-title", {
+                          scale: 1 + (progress * .6),
+                          opacity: progress > 0.05 ? 1 - ((progress - 0.05) / 0.95) : 1
+                        });
+                        
+                        gsap.set("#configure-btn", {
+                          scale: 1 - (progress * .3),
+                          opacity: progress > 0.05 ? 1 - ((progress - 0.05) / 0.95) : 1
+                        });
+                        
+                        document.body.style.overflow = "";
+                     },
+                     onLeave: () => {
+                       document.body.style.overflow = "";
+                     }
+                   }
+                 });
+                
+                mainTitleTimeline.to("#main-title", {
+                  scale: 1.8,
+                  ease: "power2.out"
+                });
+             }, 1000);
+       }, 20);
+    }
+  }, 30);
+</script>
+
+<script src="script.js"></script>
+<script src="gsap.js"></script>
+
+
+</body>
+</html>
